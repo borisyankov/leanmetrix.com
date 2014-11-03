@@ -1,23 +1,43 @@
----
-layout: default
----
-
-<div class="home">
-
-  <h1 class="page-heading">Posts</h1>
-
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html, body
+        {
+            height: 100%;
+        }
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            width: 100%
+        }
+        @font-face {
+            font-family: Din;
+            src: url(/img/DINRoundPro-Light.woff);
+        }
+        .logo {
+            border: 5px solid #cc0022;
+            font-size: 100px;
+            font-family: Din, Verdana, Helvetica;
+            display: flex;
+        }
+        .logo > div {
+            padding: 30px 40px;
+            line-height: 100%;
+        }
+        .logo div:first-child {
+            color: black;
+            background: #cc0022;
+        }
+        .logo div:last-child {
+            color: #cc0022;
+            background: black;
+        }
+    </style>
+</head>
+<body>
+<div class="logo"><div>LEAN</div><div>METRIX</div></div>
+</body>
+</html>

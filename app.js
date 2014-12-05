@@ -6,4 +6,4 @@ angular.module("leanMetrix").controller("createAccountCtrl",function(AccountServ
 angular.module("leanMetrix").directive("usernameAvailableValidator",function($q,AccountService){return{require:"ngModel",link:function($scope,element,attrs,ngModel){ngModel.$asyncValidators.usernameAvailable=function(email){var deferred=$q.defer();return deferred.resolve(!1),deferred.promise}}}});
 angular.module("leanMetrix").controller("messagesCtrl",function($firebase){var firebase=new Firebase("https://leanmetrix.firebaseio.com/messages/"),sync=$firebase(firebase);this.data=sync.$asArray()});
 angular.module("leanMetrix").controller("signInCtrl",function(AccountService){var model=this;this.message="",this.user={email:"",password:""},this.submit=function(isValid){isValid?AccountService.signIn(model.user.email,model.user.password):model.message="There are still invalid fields below"},this.logout=function(){AuthenticationService.isLogged&&(AuthenticationService.isLogged=!1,delete $window.sessionStorage.token,$location.path("/"))}});
-//# sourceMappingURL=app.min.js.map
+//# sourceMappingURL=app.js.map

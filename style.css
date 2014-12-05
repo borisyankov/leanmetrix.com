@@ -103,6 +103,7 @@ table {
     border-collapse: collapse;
     border-radius: 3px;
     overflow: hidden;
+    box-shadow: 0 0 0 1px #cb2040;
 }
 th {
     background: #cb2040;

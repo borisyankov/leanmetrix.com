@@ -6,11 +6,10 @@
 
     <link href="style.css" rel="stylesheet">
 
-    <script src="/lib.min.js"></script>
-    <script src="/app.min.js"></script>
-    <script src="/templates.js"></script>
+    <script src="lib.js"></script>
+    <script src="app.js"></script>
+    <script src="templates.js"></script>
 </head>
-
 
 <body>
     <header>
@@ -18,7 +17,6 @@
         <ng-include class="auth-panel" src="'auth/auth.html'"></ng-include>
     </header>
     <div class="content">
-
         <ng-include ng-if="!$root.authData" src="'signin/signin.html'" style="width: 48%; float: left"></ng-include>
         <ng-include ng-if="!$root.authData" src="'create-account/create-account.html'" style="width: 48%; float: left; margin-left: 4%"></ng-include>
         <ng-include ng-if="$root.authData" src="'messages/messages.html'"></ng-include>

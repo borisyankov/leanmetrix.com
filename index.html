@@ -13,13 +13,18 @@
 
 <body>
     <header>
-        <img class="logo" src="/img/lean-metrix-logo.svg"></img>
+        <img class="logo" src="/img/lean-metrix-logo.svg" alt="LeanMetrix"></img>
         <ng-include class="auth-panel" src="'auth/auth.html'"></ng-include>
     </header>
     <div class="content">
-        <ng-include ng-if="!$root.authData" src="'signin/signin.html'" style="width: 48%; float: left"></ng-include>
-        <ng-include ng-if="!$root.authData" src="'create-account/create-account.html'" style="width: 48%; float: left; margin-left: 4%"></ng-include>
-        <ng-include ng-if="$root.authData" src="'messages/messages.html'"></ng-include>
+        <div ng-if="!$root.authData">
+            <ng-include src="'signin/signin.html'" style="width: 48%; float: left"></ng-include>
+            <ng-include src="'create-account/create-account.html'" style="width: 48%; float: left; margin-left: 4%"></ng-include>
+        </div>
+        <div ng-if="$root.authData">
+            <ng-include src="'messages/domains.html'"></ng-include>
+            <ng-include src="'messages/messages.html'"></ng-include>
+        </div>
     </div>
 </body>
 

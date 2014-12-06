@@ -31,7 +31,8 @@ span {
 }
 body,
 button,
-input {
+input,
+select {
     font-family: Din, Verdana, Helvetica;
 }
 .content {
@@ -43,7 +44,7 @@ input {
     border-color: red;
     outline-color: red;
 }
-.ng-valid {
+form .ng-valid {
     border-color: green !important;
     outline-color: green;
 }
@@ -75,13 +76,15 @@ button:focus {
     outline: none;
 }
 button,
-input {
+input,
+select {
     font-size: 1em;
 }
 button:hover {
     color: white;
     background: #dc1732;
 }
+select,
 input[type=text],
 input[type=email],
 input[type=password] {
@@ -103,10 +106,15 @@ table {
     border-collapse: collapse;
     border-radius: 3px;
     overflow: hidden;
-    box-shadow: 0 0 0 1px #cb2040;
+    box-shadow: 0 0 0 2px #2f3747;
+}
+tr:hover {
+    color: white;
+    background: #dc1732;
 }
 th {
-    background: #cb2040;
+    text-align: left;
+    background: #2f3747;
     color: white;
     text-transform: uppercase;
     padding: .5em;

@@ -12,14 +12,33 @@
     </header>
     <div class="content">
         <h1>Usage</h1>
+
+        <p>To use contactjs, add the following line to the bottom of your HTML:</p>
+
+        <pre><script src="contact.min.js"></script></pre>
+
+        <p>To initialize:</p>
+
+        <pre>contactjs.init();</pre>
+
+        <p>You can configure the component by passing an options object:</p>
+
+        <pre>
+contactjs.init({
+    postUrl: 'http://example.com/contactus',
+    buttonText: 'Support',
+    sendButtonText: 'Send',
+    position: 'right', // or bottom
+});
+        </pre>
     </div>
     <script src="https://rawgit.com/LeanMetrix/contact.js/master/dist/contact.min.js"></script>
     <script>
-    contactjs.init({
-        buttonText: 'Yolo',
-        sendButtonText: 'Foooo',
-        buttonPosition: 'bottom'
-    });
+        contactjs.init({
+            buttonText: 'Yolo',
+            sendButtonText: 'Foooo',
+            buttonPosition: 'bottom'
+        });
     </script>
 </body>
 

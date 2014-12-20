@@ -13,8 +13,10 @@ angular.module('leanMetrix').controller('authCtrl', function($rootScope) {
     var model = this;
 
     firebase.onAuth(function(authData) {
-        //console.log(authData);
+
         $rootScope.authData = authData;
+
+        if (!$rootScope.$$phase) $rootScope.$apply();        
     });
 
     this.signOut = function() {
@@ -82,6 +84,40 @@ angular.module('leanMetrix').directive('usernameAvailableValidator', function($q
     }
 });
 
+angular.module('leanMetrix').controller('domainsCtrl', function($firebase, FirebaseService) {
+
+    var model = this;
+
+    var firebase = FirebaseService.getInstance('/domains/');
+    var sync = $firebase(firebase);
+
+
+    console.log(this.domains);
+
+    this.addDomain = function() {
+        firebase.push().set(model.newDomain);
+        model.newDomain = '';
+    };
+});
+
+angular.module('leanMetrix').controller('messagesCtrl', function($scope, $firebase, FirebaseService) {
+
+    var ctrl = this,
+        firebaseDomains = FirebaseService.getInstance('/domains/');
+
+    ctrl.domains = $firebase(firebaseDomains).$asArray();
+
+    $scope.$watch('currentDomain', function(newValue, oldValue) {
+
+        if (!newValue) return;
+
+        var url = newValue.$value.replace('.', '@') + '/messages/';
+        var firebaseMessages = FirebaseService.getInstance(url);
+        ctrl.messages = $firebase(firebaseMessages).$asArray();
+    });
+
+});
+
 angular.module('leanMetrix').factory('AuthService', function($firebase, $http, $rootScope) {
 
     var apiRoot = 'http://localhost:3000';
@@ -137,40 +173,6 @@ angular.module('leanMetrix').factory('FirebaseService', function(Firebase, AuthS
         firebaseUserUrl: firebaseUserUrl,
         getInstance: getInstance
     }
-});
-
-angular.module('leanMetrix').controller('domainsCtrl', function($firebase, FirebaseService) {
-
-    var model = this;
-
-    var firebase = FirebaseService.getInstance('/domains/');
-    var sync = $firebase(firebase);
-
-
-    console.log(this.domains);
-
-    this.addDomain = function() {
-        firebase.push().set(model.newDomain);
-        model.newDomain = '';
-    };
-});
-
-angular.module('leanMetrix').controller('messagesCtrl', function($scope, $firebase, FirebaseService) {
-
-    var ctrl = this,
-        firebaseDomains = FirebaseService.getInstance('/domains/');
-
-    ctrl.domains = $firebase(firebaseDomains).$asArray();
-
-    $scope.$watch('currentDomain', function(newValue, oldValue) {
-
-        if (!newValue) return;
-
-        var url = newValue.$value.replace('.', '@') + '/messages/';
-        var firebaseMessages = FirebaseService.getInstance(url);
-        ctrl.messages = $firebase(firebaseMessages).$asArray();
-    });
-
 });
 
 angular.module('leanMetrix').controller('signInCtrl', function(AuthService) {

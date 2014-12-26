@@ -1,31 +1,10 @@
-<!DOCTYPE html>
-<html lang="en" ng-app="leanMetrix">
-
-<head>
-    <title>LeanMetrix</title>
-
-    <link href="style.css" rel="stylesheet">
-
-    <script src="lib.js"></script>
-    <script src="app.js"></script>
-    <script src="templates.js"></script>
-</head>
-
-<body>
-    <header>
-        <img class="logo" src="/img/lean-metrix-logo.svg" alt="LeanMetrix"></img>
-        <ng-include class="auth-panel" src="'auth/auth.html'"></ng-include>
-    </header>
-    <div class="content">
-        <div ng-if="!$root.authData">
-            <ng-include src="'signin/signin.html'" style="width: 48%; float: left"></ng-include>
-            <ng-include src="'create-account/create-account.html'" style="width: 48%; float: left; margin-left: 4%"></ng-include>
-        </div>
-        <div ng-if="$root.authData">
-            <ng-include src="'messages/domains.html'"></ng-include>
-            <ng-include src="'messages/messages.html'"></ng-include>
-        </div>
-    </div>
-</body>
-
-</html>
+---
+layout: default
+---
+<h1>We help you engage and understand your customers</h1>
+<h2>Interested? Put your email in and we'll let you know when we launch</h2>
+<form action="//leanmetrix.us7.list-manage.com/subscribe/post?u=5d92d27f386aef451388d8291&amp;id=2e08da4aad" method="post" name="mc-embedded-subscribe-form" target="_blank">
+    <input style="position: absolute; left: -5000px;" type="text" name="b_5d92d27f386aef451388d8291_2e08da4aad" tabindex="-1" value="">
+    <input type="email" value="" name="EMAIL" placeholder="email" id="mce-EMAIL" required>
+    <button>Let me in</button>
+</form>

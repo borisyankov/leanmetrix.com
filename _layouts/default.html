@@ -1,0 +1,11 @@
+{% include header.html %}
+
+<header>
+    <img class="logo" src="/img/lean-metrix-logo.svg" alt="LeanMetrix"></img>
+    <ng-include class="auth-panel" src="'auth/auth.html'"></ng-include>
+</header>
+<div class="content">
+    {{ content }}
+</div>
+
+{% include footer.html %}

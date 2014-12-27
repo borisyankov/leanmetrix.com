@@ -6,9 +6,15 @@
     box-sizing: border-box;
     transition: all 0.3;
 }
+html{
+  height: 100%;
+}
 body {
+    min-height: 100%;
     margin: 0;
     background-color: #f8f8f8;
+    background-image: url(/img/people.jpg);
+    background-size: cover;
 }
 header {
     height: 80px;

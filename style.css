@@ -13,8 +13,33 @@ body {
     min-height: 100%;
     margin: 0;
     background-color: #f8f8f8;
-    background-image: url(/img/people.jpg);
     background-size: cover;
+}
+.prelaunch, .prelaunch-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+}
+.prelaunch {
+    background-image: url(/img/people.jpg);
+    height: 100%;
+    text-align: center;
+}
+.prelaunch-overlay {
+    background: linear-gradient(to bottom, rgba(150,150,150,.5) 0%, rgba(0,0,0,.75) 100%);
+}
+.prelaunch .content {
+    padding: 50px;
+}
+.prelaunch h1, .prelaunch h2 {
+    color: white;
+    display: inline;
+    background: rgba(0, 0, 0, 0.75);
+    box-shadow: 16px 0 rgba(0, 0, 0, 0.75), -16px 0 rgba(0, 0, 0, 0.75);
+    padding: 5px 0;
+    line-height: 1.72;
 }
 header {
     height: 80px;
@@ -78,9 +103,7 @@ button, input[type=submit] {
     cursor: pointer;
     text-transform: uppercase;
 }
-button:focus, input[type=submit]:focus {
-    outline: none;
-}
+
 button,
 input,
 select {
@@ -95,8 +118,13 @@ input[type=text],
 input[type=email],
 input[type=password] {
     border: 1px solid #ccc;
+    border-radius: 3px;
     padding: .5em;
     box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    /*    docus border: 1px solid #2f3747; */
+}
+button:focus, input:focus {
+    outline: none;
 }
 .errors {
     color: #dc1732;
